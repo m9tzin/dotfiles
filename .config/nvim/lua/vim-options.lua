@@ -1,18 +1,55 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.g.mapleader = " "
-vim.g.background = "light"
+-- OPTIONS
+local set = vim.opt
 
-vim.opt.swapfile = false
+--line nums
+set.relativenumber = true
+set.number = true
 
--- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+-- indentation and tabs
+set.tabstop = 4
+set.shiftwidth = 4
+set.autoindent = true
+set.expandtab = true
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
-vim.wo.number = true
+-- search settings
+set.ignorecase = true
+set.smartcase = true
 
+-- appearance
+set.termguicolors = true
+set.background = "dark"
+set.signcolumn = "yes"
+
+-- cursor line
+set.cursorline = true
+
+-- 80th column
+set.colorcolumn = "80"
+
+-- clipboard
+set.clipboard:append("unnamedplus")
+
+-- backspace
+set.backspace = "indent,eol,start"
+
+-- split windows
+set.splitbelow = true
+set.splitright = true
+
+-- dw/diw/ciw works on full-word
+set.iskeyword:append("-")
+
+-- keep cursor at least 8 rows from top/bot
+set.scrolloff = 8
+
+-- undo dir settings
+set.swapfile = false
+set.backup = false
+set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = true
+
+-- incremental search
+set.incsearch = true
+
+-- faster cursor hold
+set.updatetime = 50
